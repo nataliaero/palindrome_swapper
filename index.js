@@ -27,7 +27,31 @@
 // Alternatively send an email with your solution to natorgom@gmail.com
 
 function palindromeSwapper(str)  {
-  // your code here
+
+  function isPalindrome(str) {
+    let l = 0;
+    let r = str.length - 1;
+    while (l <= r) {
+      if (str[l] !== str[r]) {
+        return false;
+      }
+      l++;
+      r--;
+    }
+    return true;
+  }
+
+  for (let i = 0; i < str.length - 1; i++) {
+    const arr = str.slice().split('');
+    const tmp = arr[i];
+    arr[i] = arr[i+1]
+    arr[i+1] = tmp;
+    const candidate = arr.join(''); 
+    if (isPalindrome(candidate)) return candidate;
+  }
+
+  return -1;
+
 }
 
 module.exports = palindromeSwapper;
