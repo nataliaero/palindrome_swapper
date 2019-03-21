@@ -38,8 +38,8 @@ function palindromeSwapper(str)  {
     let testStr = str.split('');
     testStr[i] = str[i + 1];
     testStr[i + 1] = str[i];
-    console.log(testStr.join(''));
-    if (isPalindrome(testStr.join(''))) return testStr.join('');
+    testStr = testStr.join('')
+    if (isPalindrome(testStr)) return testStr;
   }
   return -1;
 }
