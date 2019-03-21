@@ -26,8 +26,22 @@
 // changes to your forked repo and submit a pull request.
 // Alternatively send an email with your solution to natorgom@gmail.com
 
+function isPalindrome(str) {
+  for (let i = 0; i < Math.floor(str.length / 2); i++) {
+    if (str[i] !== str[str.length - i - 1]) return false;
+  }
+  return true;
+}
+
 function palindromeSwapper(str)  {
-  // your code here
+  for (i = 0; i < str.length - 1; i++) {
+    let testStr = str.split('');
+    testStr[i] = str[i + 1];
+    testStr[i + 1] = str[i];
+    console.log(testStr.join(''));
+    if (isPalindrome(testStr.join(''))) return testStr.join('');
+  }
+  return -1;
 }
 
 module.exports = palindromeSwapper;
